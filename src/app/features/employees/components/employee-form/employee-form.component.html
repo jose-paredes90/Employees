@@ -1,0 +1,92 @@
+<h2 mat-dialog-title>Registrar Empleado</h2>
+
+<mat-dialog-content class="employee-form">
+    <form [formGroup]="employeeForm">
+        <div class="form-row name">
+            <div class="form-control">
+                <mat-form-field class="form-input-control" appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="name" required>
+                    <mat-error *ngIf="employeeForm.get('name')?.hasError('required') && employeeForm.get('name')?.touched">
+                        Nombre es obligatorio.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-control">
+                <mat-form-field class="form-input-control" appearance="outline">
+                    <mat-label>Apellido</mat-label>
+                    <input matInput formControlName="lastname" required>
+                    <mat-error *ngIf="employeeForm.get('lastname')?.hasError('required') && employeeForm.get('lastname')?.touched">
+                        Apellido es obligatorio.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-control">
+                <mat-form-field class="form-input-control" appearance="outline">
+                    <mat-label>Fecha de contratación</mat-label>
+                    <input matInput [matDatepicker]="pickerbirthdate" formControlName="birthdate">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="pickerbirthdate"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerbirthdate></mat-datepicker>
+                    <mat-error *ngIf="employeeForm.get('birthdate')?.hasError('required') && employeeForm.get('birthdate')?.touched">
+                        Fecha de contratación es obligatoria.
+                    </mat-error>
+                  </mat-form-field>
+            </div>
+            <div class="form-control">
+                <mat-form-field class="form-input-control" appearance="outline">
+                    <mat-label>Fecha de Nacimiento</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="hiredate">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="employeeForm.get('hiredate')?.hasError('required') && employeeForm.get('hiredate')?.touched">
+                        Fecha de contratación es obligatoria.
+                    </mat-error>
+                  </mat-form-field>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-control">
+                <mat-form-field class="form-input-control" appearance="outline">
+                    <mat-label>Charge</mat-label>
+                    <mat-select formControlName="chargeId">
+                      @for (role of roles; track role) {
+                        <mat-option [value]="role.id">{{role.nombre}}</mat-option>
+                      }
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+            <div class="form-control">
+                <mat-form-field class="form-input-control" appearance="outline">
+                    <mat-label>AFP</mat-label>
+                    <input matInput formControlName="afp" required>
+                    <mat-error *ngIf="employeeForm.get('afp')?.hasError('required') && employeeForm.get('afp')?.touched">
+                        AFP es obligatorio.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-control">
+                <mat-form-field class="form-input-control" appearance="outline">
+                    <mat-label>Salario</mat-label>
+                    <input matInput formControlName="salary" type="number" required>
+                    <mat-error *ngIf="employeeForm.get('salary')?.hasError('required') && employeeForm.get('salary')?.touched">
+                        Salario es obligatorio.
+                    </mat-error>
+                    <mat-error *ngIf="employeeForm.get('salary')?.hasError('min')">
+                        El salario debe ser mayor a 0.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close>Cancelar</button>
+    <button mat-raised-button color="primary" [disabled]="employeeForm.invalid" (click)="save()">Guardar</button>
+</mat-dialog-actions>

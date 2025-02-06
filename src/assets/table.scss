@@ -1,0 +1,77 @@
+.datatable-component {
+    overflow-x: auto;
+    width: 58vw;
+    border-radius: 10px;
+    @media (max-width: 920px) {
+      width: 66vw;
+  }
+    .mat-mdc-table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #212124 !important;
+  
+      .mat-mdc-header-cell {
+        font-weight: bold;
+        text-align: center;
+        color: white;
+        padding-top: 16px;
+      }
+  
+      .mat-mdc-cell {
+        text-align: center;
+        padding: 8px;
+        color: white;
+      }
+  
+      .mat-mdc-row:hover .mat-mdc-cell {
+        background-color: #30323563;
+      }
+    }
+  
+    .mat-mdc-icon {
+      font-size: 20px;
+      margin-right: 8px;
+      color: white;
+    }
+  
+    .mat-mdc-paginator {
+      margin-top: 16px;
+      background-color: #212124 !important;
+      color: white !important;
+    }
+  
+    @media (max-width: 768px) {
+      .mat-mdc-header-cell,
+      .mat-mdc-cell {
+        padding: 4px;
+        font-size: 14px;
+      }
+  
+      .mat-mdc-icon {
+        font-size: 16px;
+        margin-right: 4px;
+      }
+  
+      .mat-mdc-paginator {
+        font-size: 12px;
+      }
+    }
+  
+    @media (max-width: 460px) {
+      .mat-mdc-header-cell,
+      .mat-mdc-cell {
+        padding: 2px;
+        font-size: 12px;
+      }
+  
+      .mat-mdc-icon {
+        font-size: 14px;
+        margin-right: 2px;
+      }
+  
+      .mat-mdc-paginator {
+        font-size: 10px;
+      }
+    }
+  }
+  

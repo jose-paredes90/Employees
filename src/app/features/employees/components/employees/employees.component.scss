@@ -1,0 +1,52 @@
+.employee {
+  margin: 24px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 460px) {
+    margin: 0 20px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+    &-title {
+      margin: 0;
+      color: white;
+    }
+
+    .add-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgb(77 72 72 / 15%);
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 0.875rem;
+      backdrop-filter: blur(4px);
+      transition: all 0.2s ease;
+      cursor: pointer;
+
+      &:hover {
+        background: rgb(77 72 72 / 25%);
+      }
+    }
+  }
+  &__list {
+    padding: 40px 0;
+    justify-content: center;
+    display: flex
+;
+
+    @media (max-width: 768px) {
+      margin: 0;
+    }
+
+    @media (max-width: 460px) {
+      margin: 0 5px;
+    }
+  }
+}
